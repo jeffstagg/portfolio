@@ -1,0 +1,60 @@
+{
+  "experiences": [
+    {
+      "id": "kroger",
+      "title": "Lead Solutions Architect",
+      "company": "Kroger",
+      "period": "Mar 2023 - Dec 2025",
+      "type": "Contract",
+      "location": "Remote",
+      "highlights": [
+        "Architected third-party fulfillment integration generating $9M+ revenue",
+        "Replatformed to Azure event-sourced architecture",
+        "Designed ML-ready real-time capacity reporting for 500-store pilot",
+        "Led event storming workshops and coordinated 6 engineering teams"
+      ]
+    },
+    {
+      "id": "meijer",
+      "title": "Lead Solutions Architect",
+      "company": "Meijer",
+      "period": "Nov 2022 - Feb 2023",
+      "type": "Contract",
+      "location": "Remote",
+      "highlights": [
+        "Reduced POS authentication from 2-3s to 65ms (9M+ transactions)",
+        "Improved survey distribution from 30min to 20sec",
+        "Architected Auto Claim Rewards with hybrid Azure pipelines",
+        "Designed event-driven data flows for analytics"
+      ]
+    },
+    {
+      "id": "phidiax",
+      "title": "Senior Cloud Architect",
+      "company": "Phidiax",
+      "period": "Dec 2016 - Nov 2022",
+      "type": "Full-time",
+      "location": "Denver, CO",
+      "highlights": [
+        "Led greenfield development of GnuMob location-based game",
+        "Architected Retirement Calculator API with CQRS",
+        "Advised Fortune 500 clients on Azure migration",
+        "Established governance and mentored engineering teams"
+      ]
+    },
+    {
+      "id": "aspenware",
+      "title": "Senior Software Engineer",
+      "company": "Aspenware",
+      "period": "Sept 2014 - Dec 2016",
+      "type": "Full-time",
+      "location": "Denver, CO",
+      "highlights": [
+        "Designed Azure integrations for on-prem migration",
+        "Containerized applications with Docker and Jenkins CI/CD",
+        "Built real-time AngularJS dashboards for IoT telemetry",
+        "Promoted for technical leadership and mentoring"
+      ]
+    }
+  ]
+}

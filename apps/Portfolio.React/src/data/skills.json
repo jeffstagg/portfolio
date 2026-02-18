@@ -1,0 +1,63 @@
+{
+  "skillCategories": [
+    {
+      "category": "Architecture & Design",
+      "skills": [
+        "Solution Architecture",
+        "DDD",
+        "Domain Modeling",
+        "Event-Driven Architecture",
+        "Event Storming",
+        "CQRS",
+        "Event Sourcing",
+        "C4 Modeling",
+        "Microservices"
+      ]
+    },
+    {
+      "category": "Cloud & Infrastructure",
+      "skills": [
+        "Azure Service Bus",
+        "Event Hubs",
+        "Data Factory",
+        "Synapse",
+        "CosmosDB",
+        "Functions",
+        "Redis",
+        "Data Lake",
+        "API Management",
+        "Terraform",
+        "CI/CD"
+      ]
+    },
+    {
+      "category": "Data & Integration",
+      "skills": [
+        "Real-Time Streaming",
+        "Kafka",
+        "ETL/ELT Pipelines",
+        "ML Data Pipeline Design",
+        "Data Lakehouse Patterns"
+      ]
+    },
+    {
+      "category": "Development",
+      "skills": [
+        "C# / .NET 8",
+        "SQL Server",
+        "REST APIs",
+        "OpenAPI"
+      ]
+    },
+    {
+      "category": "Leadership",
+      "skills": [
+        "Cross-Team Collaboration",
+        "Technical Strategy",
+        "Stakeholder Communication",
+        "Developer Mentorship",
+        "FMEA"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+﻿node_modules/
+dist/
+bin/
+obj/
+.env
+.vagrant/
+.terraform/
+*.tfstate
+*.log
+
+# Azure Functions localsettings file
+local.settings.json
+
+# Vite specific files
+.env.local
+.env.production
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio 2015+ cache/options directory
+.vs/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.VisualState.xml
+TestResult.xml
+
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# DNX
+project.lock.json
+artifacts/
+
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
+
+# Azure Functions
+bin/
+obj/
+.azurefunctions/
+__blobstorage__/
+__queuestorage__/
+__azurite_db*__.json
+.python_packages/
+
+# Azurite
+__blobstorage__/
+__queuestorage__/
+__azurite_db*__.json

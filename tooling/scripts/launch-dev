@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Starting local microservices environment..."
+
+docker compose up --build -d
+
+echo ""
+echo "Environment Ready:"
+echo "API:          http://localhost:7071"
+echo "Vite:         http://localhost:5173"
+echo "Cosmos:       https://localhost:8081"
+echo ""
+echo "View logs with:"
+echo "docker compose logs -f"

@@ -1,0 +1,50 @@
+version: "3.9"
+services:
+  cosmos:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    container_name: cosmos
+    environment:
+      AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 1
+    ports:
+      - "8081:8081"
+      - "10251-10255:10251-10255"
+    networks:
+      - portfolio-network
+
+  portfolio-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: portfolio-api
+    working_dir: /app
+    volumes:
+      - /home/vagrant/dev/apps/Portfolio.Api:/app
+    ports:
+      - "7071:7071"
+    command: >
+      bash -c "sleep 20 && func start --port 7071 --host 0.0.0.0"
+    depends_on:
+      - cosmos
+    networks:
+      - portfolio-network
+
+  vite:
+    build:
+      context: /home/vagrant/dev/apps/Portfolio.React
+    container_name: vite
+    working_dir: /app
+    volumes:
+      - /home/vagrant/dev/apps/Portfolio.React:/app
+    ports:
+      - "5173:5173"
+    command: >
+      bash -c "npm install && npm run dev -- --host 0.0.0.0"
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.238.0/24
