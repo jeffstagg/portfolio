@@ -6,7 +6,7 @@ apt-get update -qq
 sudo apt-get upgrade -y
 sudo apt-get install -y \
     curl git unzip build-essential apt-transport-https \
-    ca-certificates gnupg lsb-release
+    ca-certificates gnupg lsb-release jq
 
 ############################################
 # Node.js
@@ -107,15 +107,10 @@ apt-get install -y terraform
 # Cosmos DB Linux Emulator
 ############################################
 
-echo "Pulling Cosmos DB Emulator..."
-
-sudo docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-
-sudo docker run -d \
-   --name cosmos \
-   -p 8081:8081 \
-   -p 10251-10255:10251-10255 \
-   mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+echo "Pulling Cosmos DB Emulator (vnext-preview)..."
+# NOTE: The legacy image has a time-limited evaluation license that expires.
+# vnext-preview is the current stable Linux emulator without that restriction.
+sudo docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:vnext-preview
 
 ############################################
 # Folder structure

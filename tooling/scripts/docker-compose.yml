@@ -1,15 +1,17 @@
-version: "3.9"
 services:
   cosmos:
-    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:vnext-preview
     container_name: cosmos
-    environment:
-      AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 1
     ports:
       - "8081:8081"
-      - "10251-10255:10251-10255"
     networks:
       - portfolio-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
 
   portfolio-api:
     build:
@@ -21,12 +23,18 @@ services:
       - /home/vagrant/dev/apps/Portfolio.Api:/app
     ports:
       - "7071:7071"
-    command: >
-      bash -c "sleep 20 && func start --port 7071 --host 0.0.0.0"
+    command: bash -c "dotnet build && func start --port 7071 --host 0.0.0.0"
     depends_on:
-      - cosmos
+      cosmos:
+        condition: service_healthy
     networks:
       - portfolio-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:7071 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 120s
 
   vite:
     build:
@@ -41,6 +49,9 @@ services:
       bash -c "npm install && npm run dev -- --host 0.0.0.0"
     networks:
       - portfolio-network
+    depends_on:
+      portfolio-api:
+        condition: service_healthy
 
 networks:
   portfolio-network:
