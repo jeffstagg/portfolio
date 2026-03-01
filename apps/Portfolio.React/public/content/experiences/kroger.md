@@ -1,8 +1,8 @@
 ---
 id: kroger
-title: Principal Solutions Architect
+title: Enterprise Solution Architect
 company: Kroger
-period: 2021 - 2024
+period: 2024 - 2025
 employmentType: Full-time
 location: Remote
 highlights:
