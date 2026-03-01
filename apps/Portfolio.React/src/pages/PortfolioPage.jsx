@@ -8,6 +8,7 @@ import ErrorMsg from "../components/ui/ErrorMsg.jsx";
 import AzureIcon from "../components/ui/AzureIcon.jsx";
 import PublicNav from "../components/nav/PublicNav.jsx";
 import ExperienceCard from "../components/portfolio/ExperienceCard.jsx";
+import ContactEmail from "../components/ui/ContactEmail.jsx";
 
 export default function PortfolioPage({ navigate }) {
   const [experiences, setExperiences] = useState([]);
@@ -93,7 +94,7 @@ export default function PortfolioPage({ navigate }) {
 
       {/* Footer */}
       <div style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(6,182,212,0.07)", padding: "22px 40px", textAlign: "center", fontFamily: T.mono, fontSize: "11px", color: T.textMuted, letterSpacing: "0.05em" }}>
-        &#106;&#101;&#102;&#102;&#115;&#116;&#97;&#103;&#103;&#64;&#112;&#114;&#111;&#116;&#111;&#110;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109; · linkedin.com/in/jeffstagg · github.com/jeffstagg
+        <ContactEmail /> · <a href="https://linkedin.com/in/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}>linkedin.com/in/jeffstagg</a> · <a href="https://github.com/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}>github.com/jeffstagg</a>
       </div>
     </div>
   );
