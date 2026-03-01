@@ -32,7 +32,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: terraform
+        working-directory: infra/terraform
 
     steps:
       - name: Checkout repository
