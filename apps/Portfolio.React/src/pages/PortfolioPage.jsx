@@ -93,7 +93,7 @@ export default function PortfolioPage({ navigate }) {
 
       {/* Footer */}
       <div style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(6,182,212,0.07)", padding: "22px 40px", textAlign: "center", fontFamily: T.mono, fontSize: "11px", color: T.textMuted, letterSpacing: "0.05em" }}>
-        jeffstagg@protonmail.com · linkedin.com/in/jeffstagg · github.com/jeffstagg
+        &#106;&#101;&#102;&#102;&#115;&#116;&#97;&#103;&#103;&#64;&#112;&#114;&#111;&#116;&#111;&#110;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109; · linkedin.com/in/jeffstagg · github.com/jeffstagg
       </div>
     </div>
   );

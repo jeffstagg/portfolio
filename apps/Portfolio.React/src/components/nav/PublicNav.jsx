@@ -24,14 +24,6 @@ export default function PublicNav({ navigate }) {
             {n}
           </span>
         ))}
-        <span
-          onClick={() => navigate("/admin")}
-          style={{ fontFamily: T.mono, fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(0,120,212,0.4)", cursor: "pointer", transition: "color 0.2s" }}
-          onMouseEnter={e => (e.target.style.color = T.azureLight)}
-          onMouseLeave={e => (e.target.style.color = "rgba(0,120,212,0.4)")}
-        >
-          Admin
-        </span>
       </div>
     </nav>
   );
