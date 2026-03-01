@@ -19,7 +19,7 @@ variable "client_id" {
 variable "location" {
   description = "Azure region for all resources"
   type        = string
-  default     = "eastus2"
+  default     = "centralus"
 }
 
 variable "project_name" {
