@@ -21,6 +21,7 @@ Kroger had taken initial steps to integrate third-party fulfillment providers in
 Kroger associates had to have Instacart software installed on their devices, which required contracts and risked security of internal devices from third-party code. They needed a way to integrate third-party fulfillment providers from the initial order process, and allow third parties to handle selection of items for an order.
 
 They needed a solution without:
+
 - Installing external software on internal systems
 - Compromising security
 - Disrupting existing operations
@@ -30,10 +31,11 @@ They needed a solution without:
 ```mermaid
 graph TD
     A[Partner API] --> B[Selection]
-    B[Selection] --> C[Dispatch]
+    B[Selection] --> C[Staging]
 ```
 
 **Key Issues:**
+
 1. Kroger generating Order data to back-fill data requirements
 2. Unsure when Customer was coming, they just showed up
 3. Third-Party Software installed on associate devices leading to security concerns
@@ -54,7 +56,7 @@ graph TD
     A[Partner API] --> B[Partner Adapter]
     B --> C[Service Orchestration]
     C --> D[Selection]
-    C --> E[Staging/Dispatch]
+    C --> E[Staging]
 
     style A fill:#0A1628
     style B fill:#0A1628
@@ -64,7 +66,7 @@ graph TD
 ### Key Decisions
 
 1. **Partner API** - To consolidate order data into a repeatable fashion to quickly bring in new third party providers
-2. **Service Orchestration** - To treat each step in fulfillment as a piece that can be replaced by third parties, or non-human entities
+2. **Incremental Migration** - To allow workflows to stay backwards-compatible with new services and event orchestrations in design
 
 ### Services Performed
 
@@ -81,10 +83,10 @@ graph TD
 
 ### Deployment Success
 
-- ✅ **1,100 stores** deployed in year one
-- ✅ Expanding to **2,800 stores** in year two
-- ✅ **$9M+ in new revenue** generated
-- ✅ **Zero security incidents**
+- **1,100 stores** deployed in year one
+- Expanding to **2,800 stores** in year two
+- **$9M+ in new revenue** generated
+- **Zero security incidents**, and zero dependency on third-party applications
 
 ### Scalability Achieved
 
@@ -100,7 +102,6 @@ graph LR
 
 ### Technical Wins
 
-- **Introducing Orchestrations** enabled us to pivot away from rigid event workflows and tightly coupled domains into loosely coupled domains that could handle units of work as they are assigned
 - **Real-time monitoring** with event monitoring
 - **Easier Debugging** through splitting events into smaller logical steps
 
