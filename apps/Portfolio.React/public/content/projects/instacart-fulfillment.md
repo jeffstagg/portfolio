@@ -3,7 +3,7 @@ id: instacart-fulfillment
 experience: kroger
 title: Instacart Fulfillment Integration
 company: Kroger
-timeline: 2022 - 2023
+timeline: "Jun 2024 - Dec 2024"
 technologies:
   - Apache Kafka
   - Event-Driven Architecture

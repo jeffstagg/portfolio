@@ -3,7 +3,7 @@ id: staging-modernization
 experience: kroger
 title: Staging & Dispatch Modernization
 company: Kroger
-timeline: 2023 - 2024
+timeline: "Jun 2025 - Dec 2025"
 technologies:
   - Azure CosmosDB
   - Azure Service Bus

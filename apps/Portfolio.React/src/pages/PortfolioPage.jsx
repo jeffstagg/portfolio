@@ -94,7 +94,7 @@ export default function PortfolioPage({ navigate }) {
 
       {/* Footer */}
       <div style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(6,182,212,0.07)", padding: "22px 40px", textAlign: "center", fontFamily: T.mono, fontSize: "11px", color: T.textMuted, letterSpacing: "0.05em" }}>
-        <ContactEmail /> · <a href="https://linkedin.com/in/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}>linkedin.com/in/jeffstagg</a> · <a href="https://github.com/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}>github.com/jeffstagg</a>
+        <ContactEmail /> · <a href="https://linkedin.com/in/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseEnter={e => (e.target.style.color = T.cyan)} onMouseLeave={e => (e.target.style.color = '')}>linkedin.com/in/jeffstagg</a> · <a href="https://github.com/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseEnter={e => (e.target.style.color = T.cyan)} onMouseLeave={e => (e.target.style.color = '')}>github.com/jeffstagg</a>
       </div>
     </div>
   );
