@@ -2,7 +2,7 @@
 id: kroger
 title: Enterprise Solution Architect
 company: Kroger
-period: 2024 - 2025
+period: Mar 2024 - Dec 2025
 employmentType: Full-time
 location: Remote
 highlights:
