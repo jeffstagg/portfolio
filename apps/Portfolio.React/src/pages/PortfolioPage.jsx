@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import T from "../theme.js";
-import { getExperiences } from "../api.js";
+import { getExperiences } from "../utils/content.js";
 import GlowBg from "../components/ui/GlowBg.jsx";
 import TopBar from "../components/ui/TopBar.jsx";
 import Spinner from "../components/ui/Spinner.jsx";
@@ -44,11 +44,11 @@ export default function PortfolioPage({ navigate }) {
             <AzureIcon />
           </span>
           <span style={{ fontSize: "11px", fontFamily: T.mono, letterSpacing: "0.08em", color: T.azureLight, fontWeight: 600 }}>
-            Azure Expert
+            Azure Specialist
           </span>
           <span style={{ width: "1px", height: "12px", background: "rgba(0,120,212,0.35)", flexShrink: 0 }} />
           <span style={{ fontSize: "11px", fontFamily: T.mono, letterSpacing: "0.08em", color: T.textMuted }}>
-            AWS · GCP · Terraform · Kubernetes
+            C# · .Net · Terraform · Kubernetes
           </span>
         </div>
 
@@ -63,7 +63,7 @@ export default function PortfolioPage({ navigate }) {
           Turning distributed systems complexity into elegant, cost-efficient architecture.
         </p>
         <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap" }}>
-          {["AWS Certified Solutions Architect", "CKA", "Terraform Associate", "Azure Solutions Expert"].map(c => (
+          {["Solution Architecture", "Hybrid Cloud Architecture", "Distributed Systems", "Enterprise Integration", "Incremental Migration"].map(c => (
             <span key={c} style={{
               padding: "5px 14px", background: "rgba(0,10,30,0.6)",
               border: "1px solid rgba(6,182,212,0.18)", borderRadius: "6px",

@@ -1,61 +1,13 @@
 services:
-  cosmos:
-    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:vnext-preview
-    container_name: cosmos
-    ports:
-      - "8081:8081"
-    networks:
-      - portfolio-network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/ready"]
-      interval: 10s
-      timeout: 5s
-      retries: 20
-      start_period: 30s
-
-  portfolio-api:
-    build:
-      context: .
-      dockerfile: Dockerfile.api
-    container_name: portfolio-api
-    working_dir: /app
-    volumes:
-      - /home/vagrant/dev/apps/Portfolio.Api:/app
-    ports:
-      - "7071:7071"
-    command: bash -c "dotnet build && func start --port 7071 --host 0.0.0.0"
-    depends_on:
-      cosmos:
-        condition: service_healthy
-    networks:
-      - portfolio-network
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:7071 || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 30
-      start_period: 120s
-
   vite:
     build:
-      context: /home/vagrant/dev/apps/Portfolio.React
+      context: ../../apps/Portfolio.React
     container_name: vite
     working_dir: /app
     volumes:
-      - /home/vagrant/dev/apps/Portfolio.React:/app
+      - ../../apps/Portfolio.React:/app
+      - /app/node_modules
     ports:
       - "5173:5173"
     command: >
       bash -c "npm install && npm run dev -- --host 0.0.0.0"
-    networks:
-      - portfolio-network
-    depends_on:
-      portfolio-api:
-        condition: service_healthy
-
-networks:
-  portfolio-network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.16.238.0/24

@@ -31,26 +31,11 @@ export default function ProjectCard({ project, isOpen, onToggle }) {
       </button>
 
       {isOpen && (
-        <div style={{ padding: "0 18px 18px", display: "flex", flexDirection: "column", gap: "14px" }}>
-          {[
-            ["Problem",  project.problem],
-            ["Solution", project.solution],
-            ["Impact",   project.impact],
-          ].map(([lbl, txt]) => (
-            <div key={lbl}>
-              <div style={{
-                fontSize: "10px", fontFamily: T.mono, color: T.cyan,
-                letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "6px",
-              }}>
-                {lbl}
-              </div>
-              <div style={{ fontSize: "13.5px", lineHeight: 1.75 }}>
-                {renderMarkdown(txt)}
-              </div>
-            </div>
-          ))}
-
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "2px" }}>
+        <div style={{ padding: "0 18px 18px" }}>
+          <div style={{ fontSize: "13.5px", lineHeight: 1.75 }}>
+            {renderMarkdown(project.content)}
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "14px" }}>
             {(project.technologies || []).map(t => <TechPill key={t} t={t} />)}
           </div>
         </div>

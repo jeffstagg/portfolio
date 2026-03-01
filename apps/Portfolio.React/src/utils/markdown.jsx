@@ -102,34 +102,18 @@ function MermaidBlock({ code }) {
 // ─── Component overrides for react-markdown ───────────────────────────────────
 
 const components = {
-  // Code blocks and inline code
-  code({ node, inline, className, children, ...props }) {
-    const language = (className || "").replace("language-", "");
-    const code     = String(children).trimEnd();
+  // Fenced code blocks — react-markdown renders <pre><code className="language-x">
+  // We intercept here so mermaid isn't wrapped in a <pre>, and to apply block styling.
+  pre({ children }) {
+    const child    = children;
+    const cls      = child?.props?.className || "";
+    const language = (cls.match(/\blanguage-(\S+)/) || [])[1] || "";
+    const code     = String(child?.props?.children ?? "").trimEnd();
 
-    // Mermaid diagrams
     if (language === "mermaid") {
       return <MermaidBlock code={code} />;
     }
 
-    // Inline code
-    if (inline) {
-      return (
-        <code style={{
-          fontFamily:   T.mono,
-          fontSize:     "12px",
-          color:        T.cyan,
-          background:   "rgba(0,229,255,0.08)",
-          padding:      "1px 6px",
-          borderRadius: "4px",
-          border:       "1px solid rgba(0,229,255,0.12)",
-        }} {...props}>
-          {children}
-        </code>
-      );
-    }
-
-    // Fenced code block
     return (
       <div style={{ margin: "14px 0", borderRadius: "10px", overflow: "hidden", border: "1px solid rgba(0,229,255,0.1)" }}>
         {language && (
@@ -155,9 +139,30 @@ const components = {
           fontSize:   "13px",
           lineHeight: 1.7,
         }}>
-          <code className={className} {...props}>{children}</code>
+          {children}
         </pre>
       </div>
+    );
+  },
+
+  // Inline code only — block code is handled by pre above
+  code({ className, children, ...props }) {
+    if (className) {
+      // Block code element inside pre — render plain so pre can style it
+      return <code className={className} {...props}>{children}</code>;
+    }
+    return (
+      <code style={{
+        fontFamily:   T.mono,
+        fontSize:     "12px",
+        color:        T.cyan,
+        background:   "rgba(0,229,255,0.08)",
+        padding:      "1px 6px",
+        borderRadius: "4px",
+        border:       "1px solid rgba(0,229,255,0.12)",
+      }} {...props}>
+        {children}
+      </code>
     );
   },
 
@@ -341,7 +346,7 @@ export function MarkdownRenderer({ children }) {
     <div style={{ lineHeight: 1.75 }}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight]}
+        rehypePlugins={[[rehypeHighlight, { ignoreMissing: true }]]}
         components={components}
       >
         {children}
