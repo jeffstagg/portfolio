@@ -64,7 +64,7 @@ export default function PortfolioPage({ navigate }) {
           Turning distributed systems complexity into elegant, cost-efficient architecture.
         </p>
         <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap" }}>
-          {["Solution Architecture", "Hybrid Cloud Architecture", "Distributed Systems", "Enterprise Integration", "Incremental Migration"].map(c => (
+          {["Platform Architecture", "Solution Architecture", "Hybrid Cloud Archtiecture", "Distributed Systems Design", "Enterprise Integration", "Incremental Migration Strategy"].map(c => (
             <span key={c} style={{
               padding: "5px 14px", background: "rgba(0,10,30,0.6)",
               border: "1px solid rgba(6,182,212,0.18)", borderRadius: "6px",

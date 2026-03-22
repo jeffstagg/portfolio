@@ -2,11 +2,12 @@ import T from "../theme.js";
 import GlowBg from "../components/ui/GlowBg.jsx";
 import TopBar from "../components/ui/TopBar.jsx";
 import PublicNav from "../components/nav/PublicNav.jsx";
+import ContactEmail from "../components/ui/ContactEmail.jsx";
 
 const SKILLS = [
-  { category: "Cloud & Infrastructure", items: ["Azure", "Kubernetes", "Terraform", "Docker", "CI/CD", "Infrastructure as Code"] },
-  { category: "Architecture", items: ["Event-Driven Architecture", "Domain-Driven Design", "Microservices", "Distributed Systems", "API Design", "Hybrid Cloud"] },
-  { category: "Languages & Frameworks", items: ["C#", ".NET", "TypeScript", "React", "Node.js", "SQL"] },
+  { category: "Cloud & Infrastructure", items: ["Azure", "Terraform", "Docker", "CI/CD", "Infrastructure as Code"] },
+  { category: "Architecture", items: ["Event-Driven Architecture", "Domain-Driven Design", "Microservices", "Distributed Systems", "API Design", "Hybrid Cloud", "Incremental Migrations"] },
+  { category: "Languages & Frameworks", items: ["C#", ".NET", "Javascript", "Powershell", "Linux", "SQL"] },
 ];
 
 export default function AboutPage({ navigate }) {
@@ -24,12 +25,10 @@ export default function AboutPage({ navigate }) {
             About
           </div>
           <h1 style={{ margin: "0 0 20px", fontSize: "clamp(32px, 5vw, 48px)", fontFamily: T.sans, fontWeight: 800, color: T.text, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-            Building systems that scale,<br />and teams that last.
+            Pragmatic architecture<br />for real-world systems.
           </h1>
           <p style={{ fontSize: "17px", color: "#64748B", lineHeight: 1.85, maxWidth: "620px", margin: 0 }}>
-            I'm Jeff Stagg — a Cloud Architect with 15+ years of experience designing
-            resilient, distributed infrastructure for enterprise platforms. I thrive at
-            the intersection of complex systems and pragmatic engineering.
+            I’m Jeff Stagg, a Cloud Architect with 15+ years of experience spanning hands-on software development and enterprise architecture. I started my career building systems end-to-end. Over time, I shifted toward designing the platforms, patterns, and standards that keep teams aligned. That development background keeps my architecture grounded in what actually works in production.
           </p>
         </div>
 
@@ -38,15 +37,15 @@ export default function AboutPage({ navigate }) {
           {[
             {
               label: "Background",
-              text: "My career has spanned startups and large enterprises alike, giving me a broad view of how software architecture decisions play out at different scales. I've led migrations from legacy monoliths to event-driven microservices, designed multi-region cloud deployments, and built the tooling and practices that keep distributed systems observable and maintainable.",
+              text: "I started my career in software engineering, building integration layers, APIs, and distributed services. That foundation evolved into a architecture, where I design hybrid and cloud-native platforms in enterprise environments. I’ve led platform and modernization initiatives across large organizations, including migrating legacy systems to cloud-native architectures, designing enterprise solutions for large retail environments, and building infrastructure platforms that define how cloud systems are deployed, governed, and operated.",
             },
             {
               label: "Philosophy",
-              text: "I believe the best architecture is the simplest one that solves the problem in front of you — not the one that anticipates every hypothetical future requirement. Complexity is a liability. Incrementalism beats the big rewrite. Good systems are boring to operate.",
+              text: "I believe the best architecture is the simplest one that solves the problem in front of you, not the one that anticipates every possible future requirement. Complexity is a liability. Incrementalism beats large rewrites. Good systems are boring to operate.",
             },
             {
               label: "Beyond the code",
-              text: "When I'm not thinking about distributed systems, you'll find me on the water, exploring the outdoors, or tinkering with side projects that let me experiment with ideas I don't get to try in production.",
+              text: "Outside of work, I’m usually making music, exploring self-hosted systems in my home lab, or spending time in the garden.",
             },
           ].map(({ label, text }) => (
             <div key={label} style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "24px", alignItems: "start" }}>
@@ -98,9 +97,7 @@ export default function AboutPage({ navigate }) {
 
       {/* Footer */}
       <div style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(6,182,212,0.07)", padding: "22px 40px", textAlign: "center", fontFamily: T.mono, fontSize: "13px", color: T.textMuted, letterSpacing: "0.05em" }}>
-        <a href="https://linkedin.com/in/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseEnter={e => (e.target.style.color = T.cyan)} onMouseLeave={e => (e.target.style.color = "")}>linkedin.com/in/jeffstagg</a>
-        {" · "}
-        <a href="https://github.com/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseEnter={e => (e.target.style.color = T.cyan)} onMouseLeave={e => (e.target.style.color = "")}>github.com/jeffstagg</a>
+        <ContactEmail /> · <a href="https://linkedin.com/in/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseEnter={e => (e.target.style.color = T.cyan)} onMouseLeave={e => (e.target.style.color = '')}>linkedin.com/in/jeffstagg</a> · <a href="https://github.com/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseEnter={e => (e.target.style.color = T.cyan)} onMouseLeave={e => (e.target.style.color = '')}>github.com/jeffstagg</a>
       </div>
     </div>
   );

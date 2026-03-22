@@ -1,4 +1,5 @@
 import T from "../../theme.js";
+import ContactEmail from "../ui/ContactEmail.jsx";
 
 export default function PublicNav({ navigate }) {
   return (
@@ -15,13 +16,12 @@ export default function PublicNav({ navigate }) {
 
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
         {[
-          { label: "Experience", href: "/#experience" },
-          { label: "About",      href: "/about" },
-          { label: "Contact",    href: "/#contact" },
-        ].map(({ label, href }) => (
+          { label: "Experience", path: "/" },
+          { label: "About",      path: "/about" },
+        ].map(({ label, path }) => (
           <span
             key={label}
-            onClick={() => href.startsWith("/") && !href.includes("#") ? navigate(href) : (window.location.href = href)}
+            onClick={() => navigate(path)}
             style={{ fontFamily: T.mono, fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, cursor: "pointer", transition: "color 0.2s" }}
             onMouseEnter={e => (e.target.style.color = T.cyan)}
             onMouseLeave={e => (e.target.style.color = T.textMuted)}
@@ -29,6 +29,9 @@ export default function PublicNav({ navigate }) {
             {label}
           </span>
         ))}
+        <span style={{ fontFamily: T.mono, fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted }}>
+          <ContactEmail label="Contact" />
+        </span>
       </div>
     </nav>
   );

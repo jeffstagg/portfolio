@@ -22,7 +22,7 @@ function NotFound({ navigate }) {
 export default function App() {
   const { path, navigate } = useRouter();
 
-  if (path === "/" || path === "") return <PortfolioPage navigate={navigate} />;
+  if (path === "/" || path === "" || path === "/experience") return <PortfolioPage navigate={navigate} />;
   if (path === "/about")           return <AboutPage navigate={navigate} />;
 
   return <NotFound navigate={navigate} />;
