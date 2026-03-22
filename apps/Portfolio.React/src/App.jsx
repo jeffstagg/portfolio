@@ -1,6 +1,7 @@
 import { useRouter } from "./router.js";
 
 import PortfolioPage from "./pages/PortfolioPage.jsx";
+import AboutPage     from "./pages/AboutPage.jsx";
 import GlowBg        from "./components/ui/GlowBg.jsx";
 import TopBar        from "./components/ui/TopBar.jsx";
 import Btn           from "./components/ui/Btn.jsx";
@@ -22,6 +23,7 @@ export default function App() {
   const { path, navigate } = useRouter();
 
   if (path === "/" || path === "") return <PortfolioPage navigate={navigate} />;
+  if (path === "/about")           return <AboutPage navigate={navigate} />;
 
   return <NotFound navigate={navigate} />;
 }

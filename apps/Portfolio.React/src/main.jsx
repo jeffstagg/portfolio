@@ -5,7 +5,7 @@ import App from "./App.jsx";
 // Google Fonts
 const link = document.createElement("link");
 link.rel = "stylesheet";
-link.href = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap";
+link.href = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap";
 document.head.appendChild(link);
 
 // Global reset

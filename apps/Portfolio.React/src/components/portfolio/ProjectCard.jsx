@@ -24,15 +24,15 @@ export default function ProjectCard({ project, isOpen, onToggle }) {
           padding: "14px 18px", background: "none", border: "none", cursor: "pointer",
         }}
       >
-        <span style={{ fontSize: "14px", fontWeight: 700, color: T.text, fontFamily: T.sans }}>
+        <span style={{ fontSize: "16px", fontWeight: 700, color: T.text, fontFamily: T.sans }}>
           {project.title}
         </span>
-        <span style={{ color: T.cyan, fontSize: "18px", lineHeight: 1 }}>{isOpen ? "−" : "+"}</span>
+        <span style={{ color: T.cyan, fontSize: "20px", lineHeight: 1 }}>{isOpen ? "−" : "+"}</span>
       </button>
 
       {isOpen && (
         <div style={{ padding: "0 18px 18px" }}>
-          <div style={{ fontSize: "13.5px", lineHeight: 1.75 }}>
+          <div style={{ fontSize: "17px", lineHeight: 1.75 }}>
             {renderMarkdown(project.content)}
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "14px" }}>
