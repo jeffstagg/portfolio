@@ -75,10 +75,10 @@ When I joined the project, the Partner API and adapter were already in progress.
 
 ### Deployment Success
 
-- ✅ **1,100 stores** deployed in year one
-- ✅ Expanding to **2,800 stores** in year two
-- ✅ **Significant new revenue stream** generated
-- ✅ **Zero security incidents**
+- **1,100 stores** deployed in year one
+- Expanding to **2,800 stores** in year two
+- **Significant new revenue stream** generated
+- **Zero security incidents**
 
 ### Scalability Achieved
   
