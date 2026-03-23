@@ -44,31 +44,31 @@ export default function PortfolioPage({ navigate }) {
           }}>
             <AzureIcon />
           </span>
-          <span style={{ fontSize: "11px", fontFamily: T.mono, letterSpacing: "0.08em", color: T.azureLight, fontWeight: 600 }}>
-            Azure Specialist
+          <span style={{ fontSize: "13px", fontFamily: T.mono, letterSpacing: "0.08em", color: T.azureLight, fontWeight: 600 }}>
+            Microsoft Certified
           </span>
           <span style={{ width: "1px", height: "12px", background: "rgba(0,120,212,0.35)", flexShrink: 0 }} />
-          <span style={{ fontSize: "11px", fontFamily: T.mono, letterSpacing: "0.08em", color: T.textMuted }}>
-            C# · .Net · Terraform · Kubernetes
+          <span style={{ fontSize: "13px", fontFamily: T.mono, letterSpacing: "0.08em", color: T.textMuted }}>
+            Azure · Event-Driven · DDD
           </span>
         </div>
 
         <h1 style={{ margin: "0 0 14px", fontSize: "clamp(42px, 7vw, 66px)", fontFamily: T.sans, fontWeight: 800, color: T.text, lineHeight: 1.05, letterSpacing: "-0.03em" }}>
           Jeff Stagg
         </h1>
-        <div style={{ fontSize: "16px", fontWeight: 600, color: T.cyan, fontFamily: T.sans, marginBottom: "20px" }}>
+        <div style={{ fontSize: "18px", fontWeight: 600, color: T.cyan, fontFamily: T.sans, marginBottom: "20px" }}>
           Cloud Architect
         </div>
-        <p style={{ margin: "0 auto 42px", maxWidth: "500px", fontSize: "15px", color: "#64748B", lineHeight: 1.85 }}>
+        <p style={{ margin: "0 auto 42px", maxWidth: "500px", fontSize: "17px", color: "#64748B", lineHeight: 1.85 }}>
           15+ years designing resilient, scalable cloud infrastructure for enterprise platforms.
           Turning distributed systems complexity into elegant, cost-efficient architecture.
         </p>
         <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap" }}>
-          {["Solution Architecture", "Hybrid Cloud Architecture", "Distributed Systems", "Enterprise Integration", "Incremental Migration"].map(c => (
+          {["Platform Architecture", "Solution Architecture", "Hybrid Cloud Archtiecture", "Distributed Systems Design", "Enterprise Integration", "Incremental Migration Strategy"].map(c => (
             <span key={c} style={{
               padding: "5px 14px", background: "rgba(0,10,30,0.6)",
               border: "1px solid rgba(6,182,212,0.18)", borderRadius: "6px",
-              fontSize: "11px", fontFamily: T.mono, color: T.textMuted,
+              fontSize: "13px", fontFamily: T.mono, color: T.textMuted,
             }}>{c}</span>
           ))}
         </div>
@@ -76,7 +76,7 @@ export default function PortfolioPage({ navigate }) {
 
       {/* Section label */}
       <div style={{ position: "relative", zIndex: 1, maxWidth: "860px", margin: "0 auto", padding: "0 40px 18px", display: "flex", alignItems: "center", gap: "14px" }}>
-        <span style={{ fontSize: "10px", fontFamily: T.mono, color: T.cyan, letterSpacing: "0.15em", textTransform: "uppercase" }}>Experience</span>
+        <span style={{ fontSize: "12px", fontFamily: T.mono, color: T.cyan, letterSpacing: "0.15em", textTransform: "uppercase" }}>Experience</span>
         <div style={{ flex: 1, height: "1px", background: "linear-gradient(90deg, rgba(6,182,212,0.3), transparent)" }} />
       </div>
 
@@ -86,14 +86,14 @@ export default function PortfolioPage({ navigate }) {
         {error   && <ErrorMsg msg={error} />}
         {!loading && !error && experiences.map((exp, i) => <ExperienceCard key={exp.id} exp={exp} idx={i} />)}
         {!loading && !error && experiences.length === 0 && (
-          <div style={{ textAlign: "center", padding: "60px", color: T.textMuted, fontFamily: T.mono, fontSize: "13px" }}>
+          <div style={{ textAlign: "center", padding: "60px", color: T.textMuted, fontFamily: T.mono, fontSize: "15px" }}>
             No experiences yet.
           </div>
         )}
       </div>
 
       {/* Footer */}
-      <div style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(6,182,212,0.07)", padding: "22px 40px", textAlign: "center", fontFamily: T.mono, fontSize: "11px", color: T.textMuted, letterSpacing: "0.05em" }}>
+      <div style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(6,182,212,0.07)", padding: "22px 40px", textAlign: "center", fontFamily: T.mono, fontSize: "13px", color: T.textMuted, letterSpacing: "0.05em" }}>
         <ContactEmail /> · <a href="https://linkedin.com/in/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseEnter={e => (e.target.style.color = T.cyan)} onMouseLeave={e => (e.target.style.color = '')}>linkedin.com/in/jeffstagg</a> · <a href="https://github.com/jeffstagg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseEnter={e => (e.target.style.color = T.cyan)} onMouseLeave={e => (e.target.style.color = '')}>github.com/jeffstagg</a>
       </div>
     </div>

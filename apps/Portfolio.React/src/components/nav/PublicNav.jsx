@@ -1,4 +1,5 @@
 import T from "../../theme.js";
+import ContactEmail from "../ui/ContactEmail.jsx";
 
 export default function PublicNav({ navigate }) {
   return (
@@ -9,21 +10,28 @@ export default function PublicNav({ navigate }) {
       padding: "0 40px", height: "58px", flexShrink: 0,
       display: "flex", alignItems: "center", justifyContent: "space-between",
     }}>
-      <span style={{ fontFamily: T.mono, fontSize: "13px", color: T.cyan }}>
+      <span style={{ fontFamily: T.mono, fontSize: "15px", color: T.cyan }}>
         <span style={{ color: T.textMuted }}>~/</span>jeff.stagg
       </span>
 
       <div style={{ display: "flex", gap: "30px", alignItems: "center" }}>
-        {["Experience", "About", "Contact"].map(n => (
+        {[
+          { label: "Experience", path: "/" },
+          { label: "About",      path: "/about" },
+        ].map(({ label, path }) => (
           <span
-            key={n}
-            style={{ fontFamily: T.mono, fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, cursor: "pointer", transition: "color 0.2s" }}
+            key={label}
+            onClick={() => navigate(path)}
+            style={{ fontFamily: T.mono, fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted, cursor: "pointer", transition: "color 0.2s" }}
             onMouseEnter={e => (e.target.style.color = T.cyan)}
             onMouseLeave={e => (e.target.style.color = T.textMuted)}
           >
-            {n}
+            {label}
           </span>
         ))}
+        <span style={{ fontFamily: T.mono, fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase", color: T.textMuted }}>
+          <ContactEmail label="Contact" />
+        </span>
       </div>
     </nav>
   );
