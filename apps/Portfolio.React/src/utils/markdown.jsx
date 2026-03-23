@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import T from "../theme.js";
+import LightboxImage from "../components/ui/LightboxImage.jsx";
 
 // ─── Mermaid diagram component ────────────────────────────────────────────────
 // Lazily initializes mermaid once and renders diagrams into a div via useEffect.
@@ -101,6 +102,8 @@ function MermaidBlock({ code }) {
 
 // ─── Component overrides for react-markdown ───────────────────────────────────
 
+const imgComponent = ({ src, alt }) => <LightboxImage src={src} alt={alt} />;
+
 const components = {
   // Fenced code blocks — react-markdown renders <pre><code className="language-x">
   // We intercept here so mermaid isn't wrapped in a <pre>, and to apply block styling.
@@ -136,7 +139,7 @@ const components = {
           background: "rgba(0,5,20,0.7)",
           overflowX:  "auto",
           fontFamily: T.mono,
-          fontSize:   "13px",
+          fontSize:   "15px",
           lineHeight: 1.7,
         }}>
           {children}
@@ -154,7 +157,7 @@ const components = {
     return (
       <code style={{
         fontFamily:   T.mono,
-        fontSize:     "12px",
+        fontSize:     "15px",
         color:        T.cyan,
         background:   "rgba(0,229,255,0.08)",
         padding:      "1px 6px",
@@ -168,32 +171,34 @@ const components = {
 
   // Headings
   h1: ({ children }) => (
-    <h1 style={{ color: T.text, fontFamily: T.sans, fontSize: "22px", fontWeight: 800, margin: "24px 0 12px", letterSpacing: "-0.02em", borderBottom: "1px solid rgba(0,229,255,0.1)", paddingBottom: "8px" }}>
+    <h1 style={{ color: T.text, fontFamily: T.sans, fontSize: "28px", fontWeight: 800, margin: "24px 0 12px", letterSpacing: "-0.02em", borderBottom: "1px solid rgba(0,229,255,0.1)", paddingBottom: "8px" }}>
       {children}
     </h1>
   ),
   h2: ({ children }) => (
-    <h2 style={{ color: T.text, fontFamily: T.sans, fontSize: "18px", fontWeight: 700, margin: "20px 0 10px", letterSpacing: "-0.01em" }}>
+    <h2 style={{ color: T.text, fontFamily: T.sans, fontSize: "23px", fontWeight: 700, margin: "20px 0 10px", letterSpacing: "-0.01em" }}>
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 style={{ color: T.cyan, fontFamily: T.sans, fontSize: "14px", fontWeight: 700, margin: "16px 0 8px", letterSpacing: "0.02em", textTransform: "uppercase" }}>
+    <h3 style={{ color: T.cyan, fontFamily: T.sans, fontSize: "18px", fontWeight: 700, margin: "16px 0 8px", letterSpacing: "0.02em", textTransform: "uppercase" }}>
       {children}
     </h3>
   ),
   h4: ({ children }) => (
-    <h4 style={{ color: T.textSub, fontFamily: T.sans, fontSize: "13px", fontWeight: 700, margin: "14px 0 6px" }}>
+    <h4 style={{ color: T.textSub, fontFamily: T.sans, fontSize: "16px", fontWeight: 700, margin: "14px 0 6px" }}>
       {children}
     </h4>
   ),
 
-  // Paragraphs
-  p: ({ children }) => (
-    <p style={{ margin: "0 0 12px", color: T.textSub, fontSize: "13.5px", lineHeight: 1.8, fontFamily: T.sans }}>
-      {children}
-    </p>
-  ),
+  // Paragraphs — use div when children contain block elements (e.g. images → LightboxImage)
+  p: ({ children }) => {
+    const style = { margin: "0 0 12px", color: T.textSub, fontSize: "17px", lineHeight: 1.8, fontFamily: T.sans };
+    const hasBlock = Array.isArray(children)
+      ? children.some((c) => c?.type === LightboxImage)
+      : children?.type === LightboxImage;
+    return hasBlock ? <div style={style}>{children}</div> : <p style={style}>{children}</p>;
+  },
 
   // Lists
   ul: ({ children }) => (
@@ -210,7 +215,7 @@ const components = {
     // Task list items (- [x] / - [ ])
     if (checked !== null && checked !== undefined) {
       return (
-        <li style={{ color: T.textSub, fontSize: "13.5px", lineHeight: 1.75, listStyle: "none", display: "flex", gap: "8px", alignItems: "flex-start" }}>
+        <li style={{ color: T.textSub, fontSize: "17px", lineHeight: 1.75, listStyle: "none", display: "flex", gap: "8px", alignItems: "flex-start" }}>
           <span style={{
             width: "14px", height: "14px", borderRadius: "3px", flexShrink: 0, marginTop: "4px",
             background: checked ? "rgba(0,229,255,0.2)" : "transparent",
@@ -227,7 +232,7 @@ const components = {
       );
     }
     return (
-      <li style={{ color: T.textSub, fontSize: "13.5px", lineHeight: 1.75 }}>{children}</li>
+      <li style={{ color: T.textSub, fontSize: "17px", lineHeight: 1.75 }}>{children}</li>
     );
   },
 
@@ -290,6 +295,9 @@ const components = {
       {children}
     </a>
   ),
+
+  // Images — clickable lightbox
+  img: imgComponent,
 
   // Inline formatting
   strong: ({ children }) => <strong style={{ color: T.text, fontWeight: 700 }}>{children}</strong>,

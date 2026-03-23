@@ -7,7 +7,7 @@ export default function TechPill({ t }) {
       background: "rgba(0,229,255,0.07)",
       border: "1px solid rgba(0,229,255,0.2)",
       borderRadius: "20px",
-      fontSize: "11px",
+      fontSize: "13px",
       fontFamily: T.mono,
       color: T.cyanDim,
       letterSpacing: "0.03em",

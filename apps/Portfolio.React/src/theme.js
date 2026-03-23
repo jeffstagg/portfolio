@@ -12,7 +12,7 @@ const T = {
   textSub:    "#94A3B8",
   textMuted:  "#4A7FA5",
   mono:       "'JetBrains Mono', monospace",
-  sans:       "'Plus Jakarta Sans', sans-serif",
+  sans:       "'IBM Plex Sans', sans-serif",
 };
 
 export default T;

@@ -48,7 +48,7 @@ export default function ExperienceCard({ exp, idx }) {
           background: exp.image ? "transparent" : "linear-gradient(135deg, rgba(0,229,255,0.15), rgba(0,229,255,0.04))",
           border: "1px solid rgba(0,229,255,0.25)",
           display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: T.mono, fontWeight: 700, fontSize: "13px", color: T.cyan, overflow: "hidden",
+          fontFamily: T.mono, fontWeight: 700, fontSize: "15px", color: T.cyan, overflow: "hidden",
         }}>
           {exp.image
             ? <img src={exp.image} alt={exp.company} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
@@ -57,15 +57,15 @@ export default function ExperienceCard({ exp, idx }) {
         </div>
 
         <div style={{ flex: 1, minWidth: 0 }}>
-          <h3 style={{ margin: "0 0 4px", fontSize: "18px", fontFamily: T.sans, fontWeight: 800, color: T.text, letterSpacing: "-0.02em" }}>
+          <h3 style={{ margin: "0 0 4px", fontSize: "20px", fontFamily: T.sans, fontWeight: 800, color: T.text, letterSpacing: "-0.02em" }}>
             {exp.title}
           </h3>
-          <div style={{ fontSize: "13px", color: T.cyan, fontWeight: 600, marginBottom: "10px", fontFamily: T.sans }}>
+          <div style={{ fontSize: "15px", color: T.cyan, fontWeight: 600, marginBottom: "10px", fontFamily: T.sans }}>
             {exp.company}
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 18px" }}>
             {[exp.period, exp.type, exp.location].map((m, i) => (
-              <span key={i} style={{ fontSize: "11px", color: T.textMuted, fontFamily: T.mono }}>{m}</span>
+              <span key={i} style={{ fontSize: "13px", color: T.textMuted, fontFamily: T.mono }}>{m}</span>
             ))}
           </div>
         </div>
@@ -76,8 +76,8 @@ export default function ExperienceCard({ exp, idx }) {
         <ul style={{ margin: 0, paddingLeft: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
           {(exp.highlights || []).map((h, i) => (
             <li key={i} style={{ display: "flex", gap: "12px", lineHeight: 1.75 }}>
-              <span style={{ color: T.cyan, flexShrink: 0, fontSize: "10px", marginTop: "5px" }}>◆</span>
-              <span style={{ fontSize: "14px", color: T.textSub, fontFamily: T.sans }}>{h}</span>
+              <span style={{ color: T.cyan, flexShrink: 0, fontSize: "12px", marginTop: "5px" }}>◆</span>
+              <span style={{ fontSize: "16px", color: T.textSub, fontFamily: T.sans }}>{h}</span>
             </li>
           ))}
         </ul>
@@ -92,7 +92,7 @@ export default function ExperienceCard({ exp, idx }) {
               width: "100%", padding: "13px 28px",
               display: "flex", alignItems: "center", gap: "10px",
               background: "none", border: "none", cursor: "pointer",
-              fontFamily: T.mono, fontSize: "11px", color: T.cyan,
+              fontFamily: T.mono, fontSize: "13px", color: T.cyan,
               letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "left",
             }}
           >

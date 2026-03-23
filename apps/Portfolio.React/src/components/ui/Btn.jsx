@@ -17,7 +17,7 @@ export default function Btn({ children, onClick, variant = "primary", type = "bu
       style={{
         padding: "9px 20px", borderRadius: "8px", border: "1px solid",
         cursor: disabled ? "not-allowed" : "pointer",
-        fontSize: "13px", fontFamily: T.mono, fontWeight: 600, letterSpacing: "0.04em",
+        fontSize: "15px", fontFamily: T.mono, fontWeight: 600, letterSpacing: "0.04em",
         opacity: disabled ? 0.5 : 1, transition: "all 0.18s",
         ...VARIANTS[variant],
         ...style,
